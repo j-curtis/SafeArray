@@ -1,0 +1,7 @@
+*.[oa]	
+#Ignore all object files
+
+*.bin
+#Ignore all binaries
+
+
