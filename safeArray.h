@@ -18,9 +18,9 @@ class safeArray{
 		int size;	//The number of elements in our array
 		T * elements;	//This points to an array of elements
 
-		safeArray(int num_elements);	//This constructor will generate an array class of num_elements size
+		safeArray(int);	//This constructor will generate an array class of num_elements size
 
-		virtual const T& at(int inex);	//This returns a reference to the element stored at index
+		virtual const T& at(int);	//This returns a reference to the element stored at index
 		//This method is virtual so that it may be overloaded with a multi-dimensional derivative class
 		
 };
