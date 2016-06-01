@@ -3,25 +3,30 @@
 //08/27/15
 
 #include "safeArray.h"
-
 #include <iostream>
 
 int main(){
-		int n = 3;
+	std::cout<<"Testing"<<std::endl;
 
-		safeArray<double> array(n);
+	safeArray<double> A(4);
+	A.at(0) = 0.0;
+	A.at(1) = 1.0;
+	A.at(2) = 2.0;
+	A.at(-1) = 3.0;
 
-		double val1 = 0.0;
-		double val2 = 1.0;
-		double val3 = 2.0;
+	for(int i = 0; i < 4; i++){
+		std::cout<<A.at(i)<<std::endl;
+	}
 
-		array.at(0) = val1;
-		array.at(1) = val2;
-		array.at(-1) = val3;
+	safeArray<char> B(3);
 
-		for(int i = 0; i < n; i++){
-			std::cout<<array.at(i)<<std::endl;
-		}
+	B.at(0) = 'a';
+	B.at(1) = 'b';
+	B.at(-1) = 'c';
 
-		return 0;
+	for(int i = 0; i < 3; i++){
+		std::cout<<B.at(i)<<std::endl;
+	}
+
+	return 0;
 }

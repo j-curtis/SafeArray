@@ -12,16 +12,38 @@
 #ifndef	SAFEARRAY_H
 #define SAFEARRAY_H
 
-template<class T>
+template <class T>
 class safeArray{
 	public:
 		int size;	//The number of elements in our array
 		T * elements;	//This points to an array of elements
 
-		safeArray(int);	//This constructor will generate an array class of num_elements size
+		safeArray(int);	//This constructor will generate an array of the given size
 
-		virtual const T& at(int);	//This returns a reference to the element stored at index
-		//This method is virtual so that it may be overloaded with a multi-dimensional derivative class
-		
+		T& at(int); //accesses the element at the given index (modulo size) and returns pointer to it
 };
+
+//We need a mod function
+int mod(int x, int m){
+	//returns x mod m
+	return (x%m + m)%m;
+}
+
+template <class T>
+safeArray<T>::safeArray(int num){
+	if(num > 0){
+		size = num;
+		elements = new T[size];
+	}
+	else{
+		std::cout<<"Error: size must be larger than 0"<<std::endl;
+	}
+}
+
+template <class T>
+T& safeArray<T>::at(int index){
+	return elements[mod(index,size)];
+}
+
+
 #endif
